@@ -15,6 +15,8 @@ var current_map = []
 export var width = 16
 export var height = 9
 
+onready var timer = $Timer
+
 func _ready():
 	map.resize(width * height)
 	_add_block_at(BlockEnum.TYPE.generator, 1, 1)
@@ -33,10 +35,7 @@ func _ready():
 	_add_block_at(BlockEnum.TYPE.flowRight, 1, 7)
 	_add_block_at(BlockEnum.TYPE.flowUp, 2, 7)
 	_add_block_at(BlockEnum.TYPE.output, 2, 6)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	emit_signal("tick")
 
 func _add_block_at(block_type, x, y):
 	if (x + y * width) > (width * height) or block_type == BlockEnum.TYPE.empty:
@@ -44,12 +43,12 @@ func _add_block_at(block_type, x, y):
 	var block = block_scene.instance()
 	block.position = Vector2(x * 32, y * 32)
 	block.block_type = block_type
+# warning-ignore:return_value_discarded
 	connect("tick", block, "_on_tick")
 	map[x + y * width] = block
 	add_child(block)
 
 func _on_Timer_timeout():
-	emit_signal("tick")
 	current_map = []
 	for i in map.size():
 		current_map.append(0)
@@ -63,7 +62,7 @@ func _on_Timer_timeout():
 				map[k].current_flowing = true
 			else:
 				map[k].current_flowing = false
-	
+	emit_signal("tick")
 
 func _update_current_flow(pos):
 	var x = pos % width
@@ -92,3 +91,13 @@ func _update_current_flow(pos):
 				current_map[x + (y + 1) * width] = 1
 		BlockEnum.TYPE.output:
 			current_map[pos] = 1
+
+func reset_map():
+	timer.stop()
+	for i in map.size():
+		if map[i] != null:
+			if map[i].block_type != BlockEnum.TYPE.empty and map[i].block_type != BlockEnum.TYPE.generator:
+				map[i].current_flowing = false
+			elif map[i].block_type == BlockEnum.TYPE.generator:
+				map[i].current_flowing = true
+	emit_signal("tick")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/step_button.png" type="Texture" id=1]
+[ext_resource path="res://entities/StepButton.gd" type="Script" id=2]
+
+[node name="StepButton" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

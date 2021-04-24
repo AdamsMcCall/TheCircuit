@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Circuit.gd" type="Script" id=3]
+[ext_resource path="res://entities/Circuit.gd" type="Script" id=3]
 
 [node name="Circuit" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
+wait_time = 0.3
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

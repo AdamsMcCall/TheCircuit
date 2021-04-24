@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/play_button.png" type="Texture" id=1]
+[ext_resource path="res://entities/PlayButton.gd" type="Script" id=2]
+
+[node name="PlayButton" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
