@@ -1,5 +1,7 @@
 extends Node2D
 
+var pause_button_scene = load("res://entities/PauseButton.tscn")
+
 func _process(delta):
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position = get_global_mouse_position()
@@ -11,3 +13,7 @@ func _process(delta):
 			if circuit != null:
 				var timer = circuit.get_node_or_null("Timer") as Timer
 				timer.start()
+				var pause_button = pause_button_scene.instance()
+				pause_button.position = position
+				get_parent().add_child(pause_button)
+				queue_free()
