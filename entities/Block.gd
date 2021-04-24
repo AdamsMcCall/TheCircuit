@@ -3,17 +3,20 @@ extends Node2D
 var current_flowing = false
 var current_cooldown = 0
 var block_rotation = 0
+var is_fixed = true
 
 var block_type = BlockEnum.TYPE.empty
 
 onready var sprite = $Sprite
 onready var animplayer = $AnimationPlayer
+onready var screws_sprite = $Screws
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_texture()
 
 func _process(delta):
+	screws_sprite.visible = is_fixed
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position = get_global_mouse_position()
 		if mouse_position.x > global_position.x - 16 * scale.x \
@@ -24,6 +27,7 @@ func _process(delta):
 			or block_type == BlockEnum.TYPE.flowUp
 			or block_type == BlockEnum.TYPE.flowLeft
 			or block_type == BlockEnum.TYPE.flowRight) \
+			and !is_fixed \
 			and !get_parent().has_started:
 				block_rotation += 1
 				if block_rotation > 3:

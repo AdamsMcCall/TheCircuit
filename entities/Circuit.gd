@@ -23,8 +23,9 @@ func _ready():
 	map.resize(width * height)
 	_add_block_at(BlockEnum.TYPE.generator, 1, 1)
 	_add_block_at(BlockEnum.TYPE.flow, 2, 1)
-	_add_block_at(BlockEnum.TYPE.flow, 3, 1)
-	_add_block_at(BlockEnum.TYPE.flowRight, 3, 2)
+	_add_block_at(BlockEnum.TYPE.flowDown, 3, 1)
+	var diode = _add_block_at(BlockEnum.TYPE.flowRight, 3, 2)
+	diode.is_fixed = false
 	_add_block_at(BlockEnum.TYPE.flow, 3, 3)
 	_add_block_at(BlockEnum.TYPE.flow, 3, 4)
 	_add_block_at(BlockEnum.TYPE.output, 4, 4)
@@ -52,6 +53,7 @@ func _add_block_at(block_type, x, y):
 	connect("tick", block, "_on_tick")
 	map[x + y * width] = block
 	add_child(block)
+	return block
 
 func _on_Timer_timeout():
 	update_map()
