@@ -7,4 +7,6 @@ func _process(delta):
 		and mouse_position.x < global_position.x + 14 * scale.x \
 		and mouse_position.y > global_position.y - 14 * scale.y \
 		and mouse_position.y < global_position.y + 14 * scale.y:
-			print("step")
+			var circuit = get_parent().get_node_or_null("Circuit")
+			if circuit != null:
+				circuit.update_map()

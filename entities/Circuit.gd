@@ -49,6 +49,9 @@ func _add_block_at(block_type, x, y):
 	add_child(block)
 
 func _on_Timer_timeout():
+	update_map()
+
+func update_map():
 	current_map = []
 	for i in map.size():
 		current_map.append(0)
