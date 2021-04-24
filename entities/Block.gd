@@ -13,6 +13,7 @@ func _ready():
 	match block_type:
 		BlockEnum.TYPE.generator:
 			sprite.texture = preload("res://assets/images/block_generator.png")
+			current_flowing = true
 		BlockEnum.TYPE.flowLeft:
 			sprite.texture = preload("res://assets/images/block_flow_left.png")
 		BlockEnum.TYPE.flowUp:
@@ -31,8 +32,6 @@ func _ready():
 
 func _on_tick():
 	if current_flowing:
-		current_flowing = false
-		animplayer.play("off")
-	else:
-		current_flowing = true
 		animplayer.play("on")
+	else:
+		animplayer.play("off")
