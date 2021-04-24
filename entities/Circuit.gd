@@ -15,6 +15,8 @@ var current_map = []
 export var width = 16
 export var height = 9
 
+var has_started = false
+
 onready var timer = $Timer
 
 func _ready():
@@ -22,7 +24,10 @@ func _ready():
 	_add_block_at(BlockEnum.TYPE.generator, 1, 1)
 	_add_block_at(BlockEnum.TYPE.flow, 2, 1)
 	_add_block_at(BlockEnum.TYPE.flow, 3, 1)
-	_add_block_at(BlockEnum.TYPE.flow, 3, 2)
+	_add_block_at(BlockEnum.TYPE.flowRight, 3, 2)
+	_add_block_at(BlockEnum.TYPE.flow, 3, 3)
+	_add_block_at(BlockEnum.TYPE.flow, 3, 4)
+	_add_block_at(BlockEnum.TYPE.output, 4, 4)
 	_add_block_at(BlockEnum.TYPE.flow, 4, 2)
 	_add_block_at(BlockEnum.TYPE.output, 5, 2)
 	_add_block_at(BlockEnum.TYPE.flow, 1, 2)
@@ -39,7 +44,7 @@ func _ready():
 
 func _add_block_at(block_type, x, y):
 	if (x + y * width) > (width * height) or block_type == BlockEnum.TYPE.empty:
-		pass
+		return
 	var block = block_scene.instance()
 	block.position = Vector2(x * 32, y * 32)
 	block.block_type = block_type

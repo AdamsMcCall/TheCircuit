@@ -11,6 +11,7 @@ func _process(delta):
 		and mouse_position.y < global_position.y + 14 * scale.y:
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
+				circuit.has_started = true
 				var timer = circuit.get_node_or_null("Timer") as Timer
 				timer.start()
 				var pause_button = pause_button_scene.instance()

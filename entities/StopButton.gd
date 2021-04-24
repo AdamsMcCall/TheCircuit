@@ -11,6 +11,7 @@ func _process(delta):
 		and mouse_position.y < global_position.y + 14 * scale.y:
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
+				circuit.has_started = false
 				circuit.reset_map()
 				var pause_button = get_parent().get_node_or_null("PauseButton")
 				if pause_button != null:
