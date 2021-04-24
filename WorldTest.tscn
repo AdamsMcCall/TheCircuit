@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Circuit.gd" type="Script" id=1]
+[ext_resource path="res://entities/TestBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/TestBlock.gd" type="Script" id=3]
+
+[node name="WorldTest" type="Node2D"]
+
+[node name="Circuit" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="Circuit"]
+autostart = true
+
+[node name="TestBlock" parent="Circuit" instance=ExtResource( 2 )]
+position = Vector2( 195.221, 121.137 )
+script = ExtResource( 3 )
+
+[connection signal="tick" from="Circuit" to="Circuit/TestBlock" method="_on_Circuit_tick"]
+[connection signal="timeout" from="Circuit/Timer" to="Circuit" method="_on_Timer_timeout"]
