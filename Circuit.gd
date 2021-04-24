@@ -2,16 +2,6 @@ extends Node2D
 
 signal tick
 
-enum BLOCKTYPE {
-	empty,
-	generator,
-	flowLeft,
-	flowUp,
-	flowRight,
-	flowDown,
-	output
-}
-
 var block_scene = preload("res://entities/Block.tscn")
 
 # coordinates formula:
@@ -25,32 +15,27 @@ export var width = 16
 export var height = 9
 
 func _ready():
-	for i in range(width * height):
-		map.append(BLOCKTYPE.empty)
-	_add_block_at(BLOCKTYPE.generator, 1, 1)
-	_add_block_at(BLOCKTYPE.flowRight, 2, 1)
-	_add_block_at(BLOCKTYPE.flowDown, 3, 1)
-	_add_block_at(BLOCKTYPE.flowRight, 3, 2)
-	_add_block_at(BLOCKTYPE.flowRight, 4, 2)
-	_add_block_at(BLOCKTYPE.output, 5, 2)
-	
-	for j in map.size():
-		if map[j] != BLOCKTYPE.empty:
-			var block = block_scene.instance()
-			block.position = Vector2((j % width) * 32, (j / width) * 32)
-			block.block_type = map[j]
-			connect("tick", block, "_on_tick")
-			add_child(block)
-
+	map.resize(width * height)
+	_add_block_at(BlockEnum.TYPE.generator, 1, 1)
+	_add_block_at(BlockEnum.TYPE.flowRight, 2, 1)
+	_add_block_at(BlockEnum.TYPE.flowDown, 3, 1)
+	_add_block_at(BlockEnum.TYPE.flowRight, 3, 2)
+	_add_block_at(BlockEnum.TYPE.flowRight, 4, 2)
+	_add_block_at(BlockEnum.TYPE.output, 5, 2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _add_block_at(block_type, x, y):
-	if (x + y * width) > (width * height):
+	if (x + y * width) > (width * height) or block_type == BlockEnum.TYPE.empty:
 		pass
-	map[x + y * width] = block_type
+	var block = block_scene.instance()
+	block.position = Vector2(x * 32, y * 32)
+	block.block_type = block_type
+	connect("tick", block, "_on_tick")
+	map[x + y * width] = block
+	add_child(block)
 
 func _on_Timer_timeout():
 	emit_signal("tick")

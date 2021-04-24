@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Object",
+"class": "BlockEnum",
+"language": "GDScript",
+"path": "res://entities/BlockEnum.gd"
+} ]
+_global_script_class_icons={
+"BlockEnum": ""
+}
+
 [application]
 
 config/name="The Circuit"

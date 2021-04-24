@@ -1,18 +1,9 @@
 extends Node2D
 
-enum TYPE {
-	empty,
-	generator,
-	flowLeft,
-	flowUp,
-	flowRight,
-	flowDown,
-	output
-}
 
 var current_flowing = false
 
-export var block_type = TYPE.generator
+var block_type = BlockEnum.TYPE.empty
 
 onready var sprite = $Sprite
 onready var animplayer = $AnimationPlayer
@@ -20,17 +11,17 @@ onready var animplayer = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match block_type:
-		TYPE.generator:
+		BlockEnum.TYPE.generator:
 			sprite.texture = preload("res://assets/images/block_generator.png")
-		TYPE.flowLeft:
+		BlockEnum.TYPE.flowLeft:
 			sprite.texture = preload("res://assets/images/block_flow_left.png")
-		TYPE.flowUp:
+		BlockEnum.TYPE.flowUp:
 			sprite.texture = preload("res://assets/images/block_flow_up.png")
-		TYPE.flowRight:
+		BlockEnum.TYPE.flowRight:
 			sprite.texture = preload("res://assets/images/block_flow_right.png")
-		TYPE.flowDown:
+		BlockEnum.TYPE.flowDown:
 			sprite.texture = preload("res://assets/images/block_flow_down.png")
-		TYPE.output:
+		BlockEnum.TYPE.output:
 			sprite.texture = preload("res://assets/images/block_output.png")
 
 
