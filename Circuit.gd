@@ -8,7 +8,8 @@ enum BLOCKTYPE {
 	flowLeft,
 	flowUp,
 	flowRight,
-	flowDown
+	flowDown,
+	output
 }
 
 var block_scene = preload("res://entities/Block.tscn")
@@ -31,6 +32,7 @@ func _ready():
 	_add_block_at(BLOCKTYPE.flowDown, 3, 1)
 	_add_block_at(BLOCKTYPE.flowRight, 3, 2)
 	_add_block_at(BLOCKTYPE.flowRight, 4, 2)
+	_add_block_at(BLOCKTYPE.output, 5, 2)
 	
 	for j in map.size():
 		if map[j] != BLOCKTYPE.empty:

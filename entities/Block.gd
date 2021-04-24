@@ -6,7 +6,8 @@ enum TYPE {
 	flowLeft,
 	flowUp,
 	flowRight,
-	flowDown
+	flowDown,
+	output
 }
 
 var current_flowing = false
@@ -29,6 +30,8 @@ func _ready():
 			sprite.texture = preload("res://assets/images/block_flow_right.png")
 		TYPE.flowDown:
 			sprite.texture = preload("res://assets/images/block_flow_down.png")
+		TYPE.output:
+			sprite.texture = preload("res://assets/images/block_output.png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
