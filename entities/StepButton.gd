@@ -1,5 +1,7 @@
 extends Node2D
 
+var play_button_scene = load("res://entities/PlayButton.tscn")
+
 func _process(delta):
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position = get_global_mouse_position()
@@ -9,4 +11,14 @@ func _process(delta):
 		and mouse_position.y < global_position.y + 14 * scale.y:
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
+				var timer = circuit.get_node_or_null("Timer") as Timer
+				if timer != null:
+					if !timer.is_stopped():
+						timer.stop()
 				circuit.update_map()
+				var pause_button = get_parent().get_node_or_null("PauseButton")
+				if pause_button != null:
+					var play_button = play_button_scene.instance()
+					play_button.position = pause_button.position
+					get_parent().add_child(play_button)
+					pause_button.queue_free()
