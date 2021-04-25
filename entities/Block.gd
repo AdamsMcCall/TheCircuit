@@ -26,11 +26,13 @@ func _process(delta):
 	if !is_active:
 		return
 	if Input.is_action_just_pressed("left_click"):
-		var mouse_position = get_global_mouse_position()
+		var maincamera = get_tree().get_root().get_child(0).get_node("Layer0/Viewport/MainCamera")
+		var layer = maincamera.current_layer_nb
+		var mouse_position = get_tree().get_root().get_mouse_position()
 		if mouse_position.x > global_position.x - 16 * scale.x \
 		and mouse_position.x < global_position.x + 16 * scale.x \
-		and mouse_position.y > global_position.y - 16 * scale.y \
-		and mouse_position.y < global_position.y + 16 * scale.y:
+		and mouse_position.y > (global_position.y - (288 * layer)) - 14 * scale.y \
+		and mouse_position.y < (global_position.y - (288 * layer)) + 14 * scale.y:
 			if (block_type == BlockEnum.TYPE.flowDown
 			or block_type == BlockEnum.TYPE.flowUp
 			or block_type == BlockEnum.TYPE.flowLeft

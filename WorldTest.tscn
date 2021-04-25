@@ -58,10 +58,6 @@ block_type = 2
 position = Vector2( 352, 64 )
 block_type = 2
 
-[node name="EditorBlock11" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 384, 64 )
-block_type = 7
-
 [node name="EditorBlock5" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 64 )
 is_fixed = false
@@ -143,3 +139,40 @@ position = Vector2( 0, 144 )
 position = Vector2( 464, 304 )
 
 [node name="Circuit" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content" instance=ExtResource( 1 )]
+position = Vector2( 16, 336 )
+
+[node name="EditorBlock" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 128, 96 )
+
+[node name="EditorBlock2" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 160, 96 )
+block_type = 2
+
+[node name="EditorBlock3" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 192, 96 )
+block_type = 2
+
+[node name="EditorBlock4" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 224, 96 )
+block_type = 2
+
+[node name="EditorBlock5" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 288, 96 )
+block_type = 2
+
+[node name="EditorBlock6" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 96 )
+block_type = 2
+
+[node name="EditorBlock7" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 352, 96 )
+block_type = 2
+
+[node name="EditorBlock8" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 96 )
+block_type = 7
+
+[node name="EditorBlock9" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 96 )
+is_fixed = false
+block_type = 6

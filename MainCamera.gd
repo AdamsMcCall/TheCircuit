@@ -10,6 +10,8 @@ var goal_zoom = 1
 var goal_position = Vector2(0, 0)
 
 func go_deeper():
+	if is_dezooming:
+		return
 	var circuit = current_layer.get_node("Viewport/Layer" + str(current_layer_nb) + "Content/Circuit")
 	circuit.emit_signal("set_active", false)
 	is_zooming = true
