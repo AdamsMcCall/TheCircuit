@@ -22,3 +22,5 @@ func _update_texture():
 			texture = preload("res://assets/images/block_flow_down.png")
 		BlockEnum.TYPE.output:
 			texture = preload("res://assets/images/block_output.png")
+		BlockEnum.TYPE.nested:
+			texture = preload("res://assets/images/block_nested.png")

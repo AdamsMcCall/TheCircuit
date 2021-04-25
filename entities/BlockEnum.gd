@@ -9,5 +9,6 @@ enum TYPE {
 	flowUp,
 	flowRight,
 	flowDown,
-	output
+	output,
+	nested
 }

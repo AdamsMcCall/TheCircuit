@@ -1,5 +1,7 @@
 extends Node2D
 
+signal change_layer
+
 var current_flowing = false
 var current_cooldown = 0
 var block_rotation = 0
@@ -14,6 +16,9 @@ onready var screws_sprite = $Screws
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_texture()
+	if block_type == BlockEnum.TYPE.nested:
+		var camera = get_tree().get_root().get_node("WorldTest/Layer0/Viewport/MainCamera")
+		connect("change_layer", camera, "go_deeper")
 
 func _process(delta):
 	screws_sprite.visible = is_fixed
@@ -34,6 +39,8 @@ func _process(delta):
 					block_rotation = 0
 				block_type = block_rotation + BlockEnum.TYPE.flowLeft
 				_update_texture()
+			elif block_type == BlockEnum.TYPE.nested and !get_parent().has_started:
+				emit_signal("change_layer")
 
 func _on_tick():
 	if current_flowing:
@@ -66,3 +73,5 @@ func _update_texture():
 			block_rotation = 3
 		BlockEnum.TYPE.output:
 			sprite.texture = preload("res://assets/images/block_output.png")
+		BlockEnum.TYPE.nested:
+			sprite.texture = preload("res://assets/images/block_nested.png")
