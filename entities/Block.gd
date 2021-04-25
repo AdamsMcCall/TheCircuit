@@ -42,7 +42,7 @@ func _on_tick():
 			current_cooldown = 2
 	else:
 		animplayer.play("off")
-		if current_cooldown > 0:
+		if current_cooldown > 0 and block_type != BlockEnum.TYPE.generator:
 			current_cooldown -= 1
 
 func _update_texture():
