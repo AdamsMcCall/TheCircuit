@@ -36,7 +36,9 @@ tracks/0/keys = {
 "values": [ Rect2( 32, 0, 32, 32 ) ]
 }
 
-[node name="Block" type="Node2D"]
+[node name="Block" type="Node2D" groups=[
+"blocks",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

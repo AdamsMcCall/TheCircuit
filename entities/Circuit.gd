@@ -1,6 +1,7 @@
 extends Node2D
 
 signal tick
+signal remove_placeholders
 
 var block_scene = preload("res://entities/Block.tscn")
 
@@ -13,7 +14,7 @@ var block_scene = preload("res://entities/Block.tscn")
 var map = []
 var current_map = []
 export var width = 16
-export var height = 9
+export var height = 8
 
 var has_started = false
 
@@ -21,34 +22,25 @@ onready var timer = $Timer
 
 func _ready():
 	map.resize(width * height)
-	_add_block_at(BlockEnum.TYPE.generator, 1, 1)
-	_add_block_at(BlockEnum.TYPE.flow, 2, 1)
-	_add_block_at(BlockEnum.TYPE.flowDown, 3, 1)
-	var diode = _add_block_at(BlockEnum.TYPE.flowRight, 3, 2)
-	diode.is_fixed = false
-	_add_block_at(BlockEnum.TYPE.flow, 3, 3)
-	_add_block_at(BlockEnum.TYPE.flow, 3, 4)
-	_add_block_at(BlockEnum.TYPE.output, 4, 4)
-	_add_block_at(BlockEnum.TYPE.flow, 4, 2)
-	_add_block_at(BlockEnum.TYPE.output, 5, 2)
-	_add_block_at(BlockEnum.TYPE.flow, 1, 2)
-	_add_block_at(BlockEnum.TYPE.flow, 1, 3)
-	_add_block_at(BlockEnum.TYPE.flow, 0, 3)
-	_add_block_at(BlockEnum.TYPE.flow, 0, 4)
-	_add_block_at(BlockEnum.TYPE.flow, 0, 5)
-	_add_block_at(BlockEnum.TYPE.flow, 0, 6)
-	_add_block_at(BlockEnum.TYPE.flow, 0, 7)
-	_add_block_at(BlockEnum.TYPE.flow, 1, 7)
-	_add_block_at(BlockEnum.TYPE.flow, 2, 7)
-	_add_block_at(BlockEnum.TYPE.output, 2, 6)
+	_parse_blocks()
 	emit_signal("tick")
 
-func _add_block_at(block_type, x, y):
+func _parse_blocks():
+	var children = get_children()
+	for child in children:
+		if child.is_in_group("editor_tools"):
+			# warning-ignore:return_value_discarded
+			connect("remove_placeholders", child, "_on_remove_placeholders")
+			_add_block_at(child.block_type, (child.position.x / 32), (child.position.y / 32), child.is_fixed)
+	emit_signal("remove_placeholders")
+
+func _add_block_at(block_type, x, y, is_fixed):
 	if (x + y * width) > (width * height) or block_type == BlockEnum.TYPE.empty:
 		return
 	var block = block_scene.instance()
 	block.position = Vector2(x * 32, y * 32)
 	block.block_type = block_type
+	block.is_fixed = is_fixed
 # warning-ignore:return_value_discarded
 	connect("tick", block, "_on_tick")
 	map[x + y * width] = block
