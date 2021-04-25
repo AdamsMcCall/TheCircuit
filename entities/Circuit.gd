@@ -2,6 +2,7 @@ extends Node2D
 
 signal tick
 signal remove_placeholders
+signal set_active(state)
 
 var block_scene = preload("res://entities/Block.tscn")
 
@@ -43,6 +44,7 @@ func _add_block_at(block_type, x, y, is_fixed):
 	block.is_fixed = is_fixed
 # warning-ignore:return_value_discarded
 	connect("tick", block, "_on_tick")
+	connect("set_active", block, "set_active")
 	map[x + y * width] = block
 	add_child(block)
 	return block

@@ -6,6 +6,7 @@ var current_flowing = false
 var current_cooldown = 0
 var block_rotation = 0
 var is_fixed = true
+var is_active = true
 
 var block_type = BlockEnum.TYPE.empty
 
@@ -22,6 +23,8 @@ func _ready():
 
 func _process(delta):
 	screws_sprite.visible = is_fixed
+	if !is_active:
+		return
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position = get_global_mouse_position()
 		if mouse_position.x > global_position.x - 16 * scale.x \
@@ -41,6 +44,9 @@ func _process(delta):
 				_update_texture()
 			elif block_type == BlockEnum.TYPE.nested and !get_parent().has_started:
 				emit_signal("change_layer")
+
+func set_active(state):
+	is_active = state
 
 func _on_tick():
 	if current_flowing:
