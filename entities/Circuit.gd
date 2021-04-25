@@ -47,8 +47,6 @@ func _add_block_at(block_type, x, y, is_fixed):
 	connect("set_active", block, "set_active")
 	map[x + y * width] = block
 	add_child(block)
-	if block.block_type == BlockEnum.TYPE.output:
-		print("caca")
 	return block
 
 func _on_Timer_timeout():

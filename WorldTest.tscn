@@ -29,7 +29,7 @@ disable_3d = true
 usage = 0
 render_target_update_mode = 3
 
-[node name="MainCamera" type="Camera2D" parent="Layer0/Viewport"]
+[node name="Camera2D" type="Camera2D" parent="Layer0/Viewport"]
 offset = Vector2( 256, 144 )
 current = true
 script = ExtResource( 9 )
@@ -162,7 +162,7 @@ block_type = 2
 
 [node name="EditorBlock6" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 96 )
-block_type = 2
+block_type = 8
 
 [node name="EditorBlock7" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 352, 96 )
@@ -176,3 +176,74 @@ block_type = 7
 position = Vector2( 256, 96 )
 is_fixed = false
 block_type = 6
+
+[node name="Layer2" type="ViewportContainer" parent="Layer0/Viewport/Layer1/Viewport"]
+margin_left = 328.0
+margin_top = 428.0
+margin_right = 344.0
+margin_bottom = 437.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Layer0/Viewport/Layer1/Viewport/Layer2"]
+size = Vector2( 512, 288 )
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport"]
+offset = Vector2( 256, 720 )
+current = true
+
+[node name="Layer2Content" type="Node2D" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport"]
+
+[node name="PlayButton" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 2 )]
+position = Vector2( 80, 592 )
+
+[node name="StepButton" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 3 )]
+position = Vector2( 48, 592 )
+
+[node name="StopButton" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 4 )]
+position = Vector2( 112, 592 )
+
+[node name="MenuBar" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 7 )]
+position = Vector2( 256, 592 )
+
+[node name="GridBackground" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/MenuBar" instance=ExtResource( 6 )]
+position = Vector2( 0, 144 )
+
+[node name="BackButton" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 10 )]
+position = Vector2( 464, 592 )
+
+[node name="Circuit" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content" instance=ExtResource( 1 )]
+position = Vector2( 16, 624 )
+
+[node name="EditorBlock" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 192, 64 )
+
+[node name="EditorBlock2" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 224, 64 )
+block_type = 2
+
+[node name="EditorBlock3" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 64 )
+block_type = 2
+
+[node name="EditorBlock4" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 96 )
+block_type = 2
+
+[node name="EditorBlock5" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 128 )
+is_fixed = false
+block_type = 3
+
+[node name="EditorBlock6" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 288, 128 )
+block_type = 2
+
+[node name="EditorBlock7" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 128 )
+block_type = 7

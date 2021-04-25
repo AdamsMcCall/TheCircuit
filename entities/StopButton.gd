@@ -4,7 +4,7 @@ var play_button_scene = load("res://entities/PlayButton.tscn")
 
 func _process(delta):
 	if Input.is_action_just_pressed("left_click"):
-		var maincamera = get_tree().get_root().get_child(0).get_node("Layer0/Viewport/MainCamera")
+		var maincamera = get_tree().get_root().get_child(0).get_node("Layer0/Viewport/Camera2D")
 		var layer = maincamera.current_layer_nb
 		var mouse_position = get_tree().get_root().get_mouse_position()
 		if mouse_position.x > global_position.x - 14 * scale.x \
