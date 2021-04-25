@@ -16,6 +16,7 @@ var map = []
 var current_map = []
 export var width = 16
 export var height = 8
+var output_nb = 0
 
 var has_started = false
 
@@ -33,6 +34,8 @@ func _parse_blocks():
 			# warning-ignore:return_value_discarded
 			connect("remove_placeholders", child, "_on_remove_placeholders")
 			_add_block_at(child.block_type, (child.position.x / 32), (child.position.y / 32), child.is_fixed)
+			if child.block_type == BlockEnum.TYPE.output:
+				output_nb += 1
 	emit_signal("remove_placeholders")
 
 func _add_block_at(block_type, x, y, is_fixed):
@@ -53,6 +56,7 @@ func _on_Timer_timeout():
 	update_map()
 
 func update_map():
+	var active_output_nb = 0
 	current_map = []
 	for i in map.size():
 		current_map.append(0)
@@ -66,7 +70,14 @@ func update_map():
 				map[k].current_flowing = true
 			else:
 				map[k].current_flowing = false
+			if map[k].block_type == BlockEnum.TYPE.output and map[k].current_flowing:
+				active_output_nb += 1
 	emit_signal("tick")
+	var menubar = get_parent().get_node("MenuBar")
+	if active_output_nb == output_nb and output_nb > 0:
+		menubar.is_success = true
+	else:
+		menubar.is_success = false
 
 func _update_current_flow(pos):
 	var x = pos % width

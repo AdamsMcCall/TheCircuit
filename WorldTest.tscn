@@ -58,6 +58,10 @@ block_type = 2
 position = Vector2( 352, 64 )
 block_type = 2
 
+[node name="EditorBlock11" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 64 )
+block_type = 7
+
 [node name="EditorBlock5" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 64 )
 is_fixed = false

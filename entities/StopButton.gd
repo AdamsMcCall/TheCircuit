@@ -14,6 +14,8 @@ func _process(delta):
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
 				circuit.has_started = false
+				var menubar = get_parent().get_node("MenuBar")
+				menubar.is_running = false
 				circuit.reset_map()
 				var pause_button = get_parent().get_node_or_null("PauseButton")
 				if pause_button != null:

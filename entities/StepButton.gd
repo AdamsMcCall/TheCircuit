@@ -14,6 +14,8 @@ func _process(delta):
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
 				circuit.has_started = true
+				var menubar = get_parent().get_node("MenuBar")
+				menubar.is_running = true
 				var timer = circuit.get_node_or_null("Timer") as Timer
 				if timer != null:
 					if !timer.is_stopped():
