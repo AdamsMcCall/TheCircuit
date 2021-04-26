@@ -124,7 +124,6 @@ func _update_current_flow(pos):
 			for node in vpcontent:
 				if node is ViewportContainer:
 					var deeper_circuit = node.get_node("Viewport/" + node.name + "Content/Circuit")
-					print(deeper_circuit.succeeded)
 					if deeper_circuit.succeeded:
 						if (x > 0):
 							current_map[(x - 1) + y * width] = 1
