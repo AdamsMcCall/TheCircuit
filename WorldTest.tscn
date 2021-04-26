@@ -65,7 +65,7 @@ block_type = 7
 [node name="EditorBlock5" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 64 )
 is_fixed = false
-block_type = 6
+block_type = 5
 
 [node name="EditorBlock6" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 96 )
@@ -81,7 +81,7 @@ block_type = 2
 
 [node name="EditorBlock9" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 256, 128 )
-block_type = 2
+block_type = 3
 
 [node name="EditorBlock12" parent="Layer0/Viewport/Layer0Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 224, 128 )
@@ -150,19 +150,75 @@ position = Vector2( 128, 96 )
 
 [node name="EditorBlock2" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 160, 96 )
-block_type = 2
+block_type = 4
+
+[node name="EditorBlock10" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 160, 128 )
+is_fixed = false
+block_type = 5
+
+[node name="EditorBlock21" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 160, 160 )
+is_fixed = false
+block_type = 6
+
+[node name="EditorBlock11" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 192, 128 )
+block_type = 3
+
+[node name="EditorBlock17" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 192, 160 )
+is_fixed = false
+block_type = 3
+
+[node name="EditorBlock18" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 224, 160 )
+block_type = 5
+
+[node name="EditorBlock19" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 160 )
+is_fixed = false
+block_type = 6
+
+[node name="EditorBlock20" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 128 )
+block_type = 3
+
+[node name="EditorBlock12" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 224, 128 )
+is_fixed = false
+block_type = 3
+
+[node name="EditorBlock13" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 224, 64 )
+is_fixed = false
+block_type = 4
+
+[node name="EditorBlock14" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 192, 64 )
+block_type = 6
+
+[node name="EditorBlock15" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 160, 64 )
+is_fixed = false
+block_type = 5
+
+[node name="EditorBlock16" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 64 )
+is_fixed = false
+block_type = 3
 
 [node name="EditorBlock3" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 192, 96 )
-block_type = 2
+block_type = 6
 
 [node name="EditorBlock4" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 224, 96 )
-block_type = 2
+block_type = 4
 
 [node name="EditorBlock5" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 288, 96 )
-block_type = 2
+block_type = 5
 
 [node name="EditorBlock6" parent="Layer0/Viewport/Layer1/Viewport/Layer1Content/Circuit" instance=ExtResource( 5 )]
 position = Vector2( 320, 96 )
@@ -225,29 +281,103 @@ position = Vector2( 464, 592 )
 position = Vector2( 16, 624 )
 
 [node name="EditorBlock" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 192, 64 )
+position = Vector2( 128, 32 )
 
 [node name="EditorBlock2" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 224, 64 )
+position = Vector2( 160, 32 )
 block_type = 2
 
 [node name="EditorBlock3" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 256, 64 )
+position = Vector2( 192, 32 )
 block_type = 2
 
 [node name="EditorBlock4" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 256, 96 )
+position = Vector2( 224, 32 )
 block_type = 2
 
 [node name="EditorBlock5" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 256, 128 )
+position = Vector2( 256, 32 )
 is_fixed = false
 block_type = 3
 
+[node name="EditorBlock11" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 32 )
+is_fixed = false
+block_type = 3
+
+[node name="EditorBlock18" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 96 )
+is_fixed = false
+block_type = 6
+
 [node name="EditorBlock6" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 288, 128 )
+position = Vector2( 288, 32 )
+block_type = 2
+
+[node name="EditorBlock12" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 64 )
+block_type = 2
+
+[node name="EditorBlock13" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 96 )
+block_type = 2
+
+[node name="EditorBlock19" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 64 )
+block_type = 2
+
+[node name="EditorBlock20" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 352, 96 )
+block_type = 2
+
+[node name="EditorBlock21" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 96 )
+block_type = 2
+
+[node name="EditorBlock22" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 128 )
+block_type = 2
+
+[node name="EditorBlock23" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 160 )
+block_type = 2
+
+[node name="EditorBlock24" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 288, 160 )
+block_type = 2
+
+[node name="EditorBlock25" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 352, 160 )
+block_type = 2
+
+[node name="EditorBlock14" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 128 )
+block_type = 2
+
+[node name="EditorBlock17" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 128 )
+block_type = 2
+
+[node name="EditorBlock15" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 160 )
+block_type = 6
+
+[node name="EditorBlock16" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 384, 160 )
+block_type = 6
+
+[node name="EditorBlock9" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 320, 32 )
+block_type = 2
+
+[node name="EditorBlock10" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 352, 32 )
 block_type = 2
 
 [node name="EditorBlock7" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
-position = Vector2( 320, 128 )
+position = Vector2( 384, 192 )
+block_type = 7
+
+[node name="EditorBlock8" parent="Layer0/Viewport/Layer1/Viewport/Layer2/Viewport/Layer2Content/Circuit" instance=ExtResource( 5 )]
+position = Vector2( 256, 192 )
 block_type = 7
