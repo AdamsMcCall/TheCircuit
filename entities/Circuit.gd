@@ -17,6 +17,7 @@ var current_map = []
 export var width = 16
 export var height = 8
 var output_nb = 0
+var succeeded = false
 
 var has_started = false
 
@@ -56,6 +57,8 @@ func _on_Timer_timeout():
 	update_map()
 
 func update_map():
+	var menubar = get_parent().get_node("MenuBar")
+	menubar.is_running = true
 	var active_output_nb = 0
 	current_map = []
 	for i in map.size():
@@ -73,11 +76,12 @@ func update_map():
 			if map[k].block_type == BlockEnum.TYPE.output and map[k].current_flowing:
 				active_output_nb += 1
 	emit_signal("tick")
-	var menubar = get_parent().get_node("MenuBar")
 	if active_output_nb == output_nb and output_nb > 0:
 		menubar.is_success = true
+		succeeded = true
 	else:
 		menubar.is_success = false
+		succeeded = false
 
 func _update_current_flow(pos):
 	var x = pos % width
@@ -115,6 +119,24 @@ func _update_current_flow(pos):
 				current_map[x + (y + 1) * width] = 1
 		BlockEnum.TYPE.output:
 			current_map[pos] = 1
+		BlockEnum.TYPE.nested:
+			var vpcontent = get_parent().get_parent().get_children()
+			for node in vpcontent:
+				if node is ViewportContainer:
+					var deeper_circuit = node.get_node("Viewport/" + node.name + "Content/Circuit")
+					print(deeper_circuit.succeeded)
+					if deeper_circuit.succeeded:
+						if (x > 0):
+							current_map[(x - 1) + y * width] = 1
+						if (x < width - 1):
+							current_map[(x + 1) + y * width] = 1
+						if (y > 0):
+							current_map[x + (y - 1) * width] = 1
+						if (y < height - 1):
+							current_map[x + (y + 1) * width] = 1
+					else:
+						current_map[pos] = 1
+					deeper_circuit.update_map()
 
 func reset_map():
 	timer.stop()

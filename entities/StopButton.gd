@@ -14,12 +14,21 @@ func _process(delta):
 			var circuit = get_parent().get_node_or_null("Circuit")
 			if circuit != null:
 				circuit.has_started = false
-				var menubar = get_parent().get_node("MenuBar")
-				menubar.is_running = false
-				circuit.reset_map()
+				_reset_circuit(circuit)
+				#circuit.reset_map()
 				var pause_button = get_parent().get_node_or_null("PauseButton")
 				if pause_button != null:
 					var play_button = play_button_scene.instance()
 					play_button.position = pause_button.position
 					get_parent().add_child(play_button)
 					pause_button.queue_free()
+
+func _reset_circuit(circuit):
+	circuit.reset_map()
+	var menubar = circuit.get_parent().get_node("MenuBar")
+	menubar.is_running = false
+	var vpcontent = circuit.get_parent().get_parent().get_children()
+	for node in vpcontent:
+		if node is ViewportContainer:
+			var deeper_circuit = node.get_node("Viewport/" + node.name + "Content/Circuit")
+			_reset_circuit(deeper_circuit)

@@ -53,7 +53,7 @@ func set_active(state):
 func _on_tick():
 	if current_flowing:
 		animplayer.play("on")
-		if block_type != BlockEnum.TYPE.output:
+		if block_type != BlockEnum.TYPE.output and block_type != BlockEnum.TYPE.nested:
 			current_cooldown = 2
 	else:
 		animplayer.play("off")

@@ -22,8 +22,6 @@ func go_deeper():
 	current_layer = current_layer.get_node("Viewport/Layer" + str(current_layer_nb)) as ViewportContainer
 	goal_position.x = current_layer.rect_position.x + (current_layer.rect_size.x / 2)
 	goal_position.y = current_layer.rect_position.y + (current_layer.rect_size.y / 2)
-	print("deeper to:")
-	print(goal_position)
 
 func go_higher():
 	is_dezooming = true
@@ -34,8 +32,6 @@ func go_higher():
 	current_camera = current_layer.get_node("Viewport/Camera2D")
 	var circuit = current_layer.get_node("Viewport/Layer" + str(current_layer_nb) + "Content/Circuit")
 	circuit.emit_signal("set_active", true)
-	print("higher to:")
-	print(goal_position)
 
 func _process(delta):
 	if is_zooming:
